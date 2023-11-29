@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple calculator</title>
+    <style>
+        body{
+            margin: 0rem;
+            padding: 0rem;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: yellow;
+        }
+
+        .heading{
+            font-size: 1.5rem;
+            font-style: normal;
+        }
+
+        #inputOne{
+            font-size: 1.2rem;
+            background-color: rgb(255, 255, 255);
+            padding: .3rem;
+            border: .3rem solid rgb(223, 220, 211);
+            border-radius: .7rem;
+            cursor: pointer;
+        }
+
+        #inputTwo{
+            font-size: 1.2rem;
+            background-color: rgb(255, 255, 255);
+            padding: .3rem;
+            border: .3rem solid rgb(223, 220, 211);
+            border-radius: .7rem;
+            cursor: pointer;
+        }
+
+        .buttons{
+            padding-top: 1rem;
+            font-size: rem;
+            display: flex;
+            width: 370px;
+            height: auto;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="heading">
+            <h1>Simple Calculator</h1>
+        </div>
+
+        <div class="input">
+            <input type="number" id="inputOne" placeholder="input number"/>
+            <input type="number" id="inputTwo" placeholder="input number"/>
+        </div>
+
+        <div class="buttons">
+            <button id="add" onclick="add()">Addition +</button>
+            <button id="substract" onclick="substract()">Subtraction -</button>
+            <button id="multiply" onclick="multiply()">Multiplication *</button>
+            <button id="divison" onclick="division()">Division /</button>
+        </div>
+
+        <div class="results">
+            <h2>Result: <span id="result">0</span> </h2>
+        </div>
+    </section>
+    
+    <script>
+        let inputOne = document.getElementById("inputOne");
+        let inputTwo = document.getElementById("inputTwo");
+        let result = document.getElementById("result");
+
+        function add() {
+           if (inputOne.value && inputTwo.value) {
+            let add = parseInt(inputOne.value) + parseInt(inputTwo.value);
+            result.innerHTML = add;
+            clearInput()
+           } else{
+            alert('please insert above values')
+           }
+        }
+
+        function substract() {
+            if (inputOne.value && inputTwo.value) {
+                let substract = parseInt(inputOne.value) - parseInt(inputTwo.value);
+                result.innerHTML = substract;
+                clearInput()
+            } else {
+                alert('please insert above values')
+            }
+        }
+
+        function multiply() {
+            if(inputOne.value && inputTwo.value) {
+                let multiply = parseInt(inputOne.value) * parseInt(inputTwo.value);
+                result.innerHTML = multiply;
+                clearInput()
+            } else {
+                alert('please insert above values')
+            }
+        }
+
+        function division() {
+            if (inputOne.value && inputTwo.value) {
+                let division = parseInt(inputOne.value) / parseInt(inputTwo.value);
+                result.innerHTML = division.toFixed(2);
+                clearInput()
+            } else {
+                alert('please insert above values')
+            }
+        }
+
+        function clearInput() {
+            inputOne.value = "";
+            inputTwo.value = "";
+        }
+        
+        
+    </script>
+</body>
+</html>
